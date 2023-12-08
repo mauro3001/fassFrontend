@@ -1,0 +1,115 @@
+.principal {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  background-image: url('../../../assets/images/FASS.png');
+  //background-size: cover;
+  /* Ajusta la posición del fondo */
+  background-position: center;
+  /* Fija el fondo para que no se desplace con el contenido */
+  background-attachment: fixed;
+  /* Establece un color de fondo de respaldo si la imagen no está disponible */
+  background-color: #f0f0f0;
+  &_card {
+    display: grid;
+    place-content: center;
+    padding: 32px;
+  }
+}
+
+.title {
+  display: grid;
+  place-content: center;
+  padding: 2.411513859275053vh;
+  &_text {
+    font-size: 2.411513859275053vh;
+    font-weight: 700;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+  }
+}
+
+.input {
+  width: 40vh;
+}
+
+.form{
+    display: grid;
+}
+
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2vh;
+    grid-gap: 1vh;
+}
+
+.mat-mdc-form-field-error{
+  margin-bottom: 1vh !important;
+}
+
+@media screen and (max-height: 550px) {
+  .title{
+    &_text {
+    font-size: 4.411513859275053vh;
+  }
+  }
+  .principal {
+    display: grid;
+    place-content: center;
+    &_card {
+      display: grid;
+      place-content: center;
+      width: 90vh !important;
+    }
+    .input {
+      width: 70vh !important;
+    }
+    .mat-mdc-form-field{
+      width: 70vh !important;
+    }
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .title{
+    &_text {
+    font-size: 3.411513859275053vh;
+  }
+  }
+  .principal {
+    display: grid;
+    place-content: center;
+    &_card {
+      display: grid;
+      place-content: center;
+      width: 70vh;
+    }
+    .input {
+      width: 50vh;
+    }
+    .mat-mdc-form-field{
+      width: 50vh;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .principal {
+    display: grid;
+    place-content: center;
+    &_card {
+      display: grid;
+      place-content: center;
+      width: 40vh;
+    }
+    .input {
+      width: 30vh;
+    }
+    .mat-mdc-form-field{
+      width: 30vh;
+    }
+  }
+}

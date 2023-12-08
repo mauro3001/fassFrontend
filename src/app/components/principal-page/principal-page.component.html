@@ -1,0 +1,41 @@
+<mat-card class="username">
+  <mat-card-header>
+    <mat-card-title-group class="username_title">
+      <mat-card-title>Bienvenido</mat-card-title>
+      <mat-card-subtitle class="username_name">{{
+        userData?.user
+      }}</mat-card-subtitle>
+    </mat-card-title-group>
+    <img
+      class="username_img"
+      mat-card-image
+      src="{{ userData?.imageUrl }}"
+      alt="NOT FOUND" />
+  </mat-card-header>
+  <mat-card-content>
+    <p class="username_initial">{{ userData?.name }}</p>
+    <p class="username_textCuota">Se encuentra en MORA de la CUOTA?</p>
+    <div class="username_cuota">
+      <p class="username_cuota_text">{{ moraCuota ? 'SI' : 'NO' }}</p>
+      <mat-icon *ngIf="!moraCuota" class="username_cuota_img"
+        >thumb_up</mat-icon
+      >
+      <mat-icon *ngIf="moraCuota" class="username_cuota_false"
+        >thumb_down</mat-icon
+      >
+    </div>
+    <p class="username_textDeuda">Se encuentra en MORA de la DEUDA?</p>
+    <div class="username_cuota">
+      <p class="username_cuota_text">{{ moraDeuda ? 'SI' : 'NO' }}</p>
+      <mat-icon *ngIf="!moraDeuda" class="username_cuota_img"
+        >thumb_up</mat-icon
+      >
+      <mat-icon *ngIf="moraDeuda" class="username_cuota_false"
+        >thumb_down</mat-icon
+      >
+    </div>
+    <div class="actions">
+      <button mat-raised-button class="actions_color" type="button" (click)="loggoutButton()">SALIR</button>
+    </div>
+  </mat-card-content>
+</mat-card>

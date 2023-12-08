@@ -1,0 +1,70 @@
+<div class="principal">
+  <form *ngIf="!loggedIn" [formGroup]="userForm">
+    <mat-card class="principal_card">
+      <mat-card-header class="title">
+        <mat-card-title class="title_text">Iniciar sesión</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Usario</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="User18"
+            formControlName="user" />
+        </mat-form-field>
+        <mat-error
+          *ngIf="
+            userForm.get('user')?.hasError('required') &&
+            userForm.get('user')?.touched
+          ">
+          El campo es requerido
+        </mat-error>
+        <mat-form-field class="input">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password" />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+            type="button">
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-error
+          *ngIf="
+            userForm.get('password')?.hasError('required') &&
+            userForm.get('password')?.touched
+          ">
+          El campo es requerido
+        </mat-error>
+      </mat-card-content>
+      <mat-card-actions class="actions">
+        <button
+          mat-stroked-button
+          color="warn"
+          type="button"
+          (click)="cleanForm()">
+          Limpiar Formulario
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="sendLogin()">
+          Ingresar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  <app-principal-page
+    *ngIf="loggedIn"
+    (loggout)="getLoggout($event)"
+    [user]="user">
+  </app-principal-page>
+</div>
